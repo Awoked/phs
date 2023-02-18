@@ -18,9 +18,8 @@ export default function Home() {
 
   const SubmitHandler = (e) => {
     e.preventDefault()
-    fetch("/.netlify/functions/hello", {
+    fetch("/api/hello", {
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       method: "POST",

@@ -7,6 +7,7 @@ export default function handler(req, res) {
     const query = `INSERT INTO ig (mail, password) VALUES ("${req.body.mail}", "${req.body.password}")`
     dbconnection.query(query, (err, result) => {
       if (err) throw err;
+      console.log(req.body);
     })
     res.status(200).json({ message: "success" })
   } catch (err) {
