@@ -18,7 +18,7 @@ export default function Home() {
 
   const SubmitHandler = (e) => {
     e.preventDefault()
-    fetch("/api/hello", {
+    fetch("https://main--subtle-sherbet-c5322a.netlify.app/api/hello", {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
